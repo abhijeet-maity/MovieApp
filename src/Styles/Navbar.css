@@ -108,7 +108,7 @@
   .nav-right {
     flex-direction: column;
     justify-content: space-around;
-    gap: 10px;
+    gap: 12px;
     align-items: center;
   }
   .navbar-links {
