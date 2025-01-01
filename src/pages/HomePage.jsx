@@ -39,14 +39,18 @@ const HomePage = () => {
         >
           &laquo;
         </button>
-        <button
-          onClick={() => {
-            handleChangePage(page - 1);
-          }}
-          disabled={page === 1}
-        >
-          {page - 1}
-        </button>
+
+        {page > 1 && (
+          <button
+            onClick={() => {
+              handleChangePage(page - 1);
+            }}
+            disabled={page === 1}
+          >
+            {page - 1}
+          </button>
+        )}
+
         <button
           className="active"
           onClick={() => {
@@ -63,6 +67,7 @@ const HomePage = () => {
         >
           {page + 1}
         </button>
+
         <button
           onClick={() => {
             handleChangePage(page + 1);

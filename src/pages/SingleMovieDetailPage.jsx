@@ -4,7 +4,7 @@ import { fetchMovieDetails, fetchMovieCastDetails } from "../utilities/AllApi";
 import "./../Styles/SingleMovieDetailPage.css";
 
 const SingleMovieDetailPage = () => {
-  const { movieId } = useParams(); // Extract movieId from the URL
+  const { movieId } = useParams(); // Extracting movieId from the URL
   const [movieDetail, setMovieDetail] = useState(null);
   const [cast, setCast] = useState([]);
   console.log(movieId);
@@ -14,10 +14,11 @@ const SingleMovieDetailPage = () => {
       try {
         const data = await fetchMovieDetails(movieId);
         setMovieDetail(data);
+        console.log(data);
 
         const castData = await fetchMovieCastDetails(movieId);
         setCast(castData.slice(0, 6)); // Limit cast to top 6 actors
-
+        console.log(cast);
       } catch (error) {
         console.error("Error fetching movie or cast details:", error);
       }
@@ -33,16 +34,14 @@ const SingleMovieDetailPage = () => {
   const BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
   return (
-    
     <div className="single-movie-page">
       {/* Movie Details Section */}
       <div
         className="movie-details"
         style={{
-          // backgroundImage: `url(${BASE_IMAGE_URL}${movieDetail.poster_path})`,
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${BASE_IMAGE_URL}${movieDetail.poster_path})`,
           backgroundPosition: "center",
-          backgroundSize: "cover", // Makes the image cover the entire div
+          backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
       >
@@ -56,13 +55,19 @@ const SingleMovieDetailPage = () => {
             <h1>{movieDetail.title}</h1>
             <p>{movieDetail.overview}</p>
             <ul>
-              <li><strong>Release Date:</strong> {movieDetail.release_date}</li>
-              <li><strong>Rating:</strong> {movieDetail.vote_average} / 10</li>
+              <li>
+                <strong>Release Date:</strong> {movieDetail.release_date}
+              </li>
+              <li>
+                <strong>Rating:</strong> {movieDetail.vote_average} / 10
+              </li>
               <li>
                 <strong>Genres:</strong>{" "}
                 {movieDetail.genres.map((genre) => genre.name).join(", ")}
               </li>
-              <li><strong>Runtime:</strong> {movieDetail.runtime} minutes</li>
+              <li>
+                <strong>Runtime:</strong> {movieDetail.runtime} minutes
+              </li>
             </ul>
           </div>
         </div>
