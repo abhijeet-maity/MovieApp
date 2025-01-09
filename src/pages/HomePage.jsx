@@ -16,12 +16,6 @@ const HomePage = () => {
     fetchMovies();
   }, [page]);
 
-  const handleChangePage = (pageNumber) => {
-    if (pageNumber > 0 && pageNumber <= 500) {
-      setPage(pageNumber);
-    }
-  };
-
   return (
     <div className="main-section">
       <div className="movie-list">
@@ -31,49 +25,23 @@ const HomePage = () => {
         ))}
       </div>
       <section className="pagination">
-        <button
-          onClick={() => {
-            handleChangePage(page - 1);
-          }}
-          disabled={page === 1}
-        >
+        <button onClick={() => setPage(page - 1)} disabled={page === 1}>
           &laquo;
         </button>
 
         {page > 1 && (
-          <button
-            onClick={() => {
-              handleChangePage(page - 1);
-            }}
-            disabled={page === 1}
-          >
+          <button onClick={() => setPage(page - 1)} disabled={page === 1}>
             {page - 1}
           </button>
         )}
 
-        <button
-          className="active"
-          onClick={() => {
-            handleChangePage(page);
-          }}
-        >
+        <button className="active" onClick={() => setPage(page)}>
           {page}
         </button>
 
-        <button
-          onClick={() => {
-            handleChangePage(page + 1);
-          }}
-        >
-          {page + 1}
-        </button>
+        <button onClick={() => setPage(page + 1)}>{page + 1}</button>
 
-        <button
-          onClick={() => {
-            handleChangePage(page + 1);
-          }}
-          disabled={page === 500}
-        >
+        <button onClick={() => setPage(page + 1)} disabled={page === 500}>
           &raquo;
         </button>
       </section>
