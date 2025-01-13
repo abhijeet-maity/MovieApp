@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchMovieDetails, fetchMovieCastDetails } from "../utilities/AllApi";
+import { fetchMovieDetails, fetchMovieCastDetails,IM } from "../utilities/AllApi";
 import "./../Styles/SingleMovieDetailPage.css";
 
 const SingleMovieDetailPage = () => {
@@ -17,7 +17,7 @@ const SingleMovieDetailPage = () => {
         console.log(data);
 
         const castData = await fetchMovieCastDetails(movieId);
-        setCast(castData.slice(0, 6)); // Limit cast to top 6 actors
+        setCast(castData.slice(0, 6)); // 6 elemets
         console.log(cast);
       } catch (error) {
         console.error("Error fetching movie or cast details:", error);
@@ -59,7 +59,8 @@ const SingleMovieDetailPage = () => {
                 <strong>Release Date:</strong> {movieDetail.release_date}
               </li>
               <li>
-                <strong>Rating:</strong> {movieDetail.vote_average} / 10
+                <strong>Rating:</strong>{" "}
+                {movieDetail.vote_average.toString().substring(0, 3)} / 10
               </li>
               <li>
                 <strong>Genres:</strong>{" "}
