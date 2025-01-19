@@ -27,6 +27,7 @@
 .movie-card h4 {
   font-size: 12px;
   padding-left: 10px;
+  letter-spacing: 0.6px;
   color: yellow;
   margin-bottom: 10px;
   margin-top: 0;
@@ -40,4 +41,13 @@
 .movie-card:hover {
   transform: translateY(-5px); /* lift card on hover */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .movie-card h3 {
+    font-size: 12px;
+  }
+  .movie-card h4 {
+    font-size: 11px;
+  }
 }

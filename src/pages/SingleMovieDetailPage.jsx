@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchMovieDetails, fetchMovieCastDetails,IM } from "../utilities/AllApi";
+import { fetchMovieDetails, fetchMovieCastDetails } from "../utilities/AllApi";
 import "./../Styles/SingleMovieDetailPage.css";
 
 const SingleMovieDetailPage = () => {
