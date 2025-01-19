@@ -1,10 +1,22 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 20px 20px;
   background-color: #222;
   color: white;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  background-color: rgba(34, 34, 34, 0.6); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /*Adds the blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 .navbar-logo h1 {
   margin: 0;
@@ -75,10 +87,12 @@
   .navbar {
     flex-wrap: wrap;
     margin-left: 0;
+    padding: 10px 5px;
   }
 
   .nav-right {
     margin-left: 0px;
+    
   }
 
   .navbar-links {
